@@ -1,0 +1,30 @@
+<!-- app/views/restaurants/index.html.erb -->
+
+  <h1>My tasks</h1>
+
+  <% @tasks.each do |task| %>
+    <div class="task">
+      <% if task.completed == true  %>
+        <div class="checkbox">
+          <label class="container">
+          <input type="checkbox" checked>
+          <span class="checkmark"></span>
+          </label>
+        </div>
+      <% else %>
+        <div class="checkbox">
+          <label class="container">
+          <input type="checkbox">
+          <span class="checkmark"></span>
+          </label>
+        </div>
+      <% end %>
+
+      <div class="title">
+        <h2><%= link_to task.title, task_path(task) %></h2>
+      </div>
+    </div>
+
+  <% end %>
+
+<p><%= link_to " + Add a new task", tasks_new_path %></p>
